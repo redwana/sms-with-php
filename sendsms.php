@@ -5,6 +5,11 @@ if(isset($_POST["btn_submit"])){
     $message=$ob->sendSMSToMany($_POST["txt_mobno"],$_POST["ta_msg"]);
     echo "<div style=\"color:red;\">$message</div>";
     }
+// secure your post method
+$ob = new Sms(strip_tags( trim$_POST["txt_username"]),strip_tags( trim$_POST["txt_password"]));
+ $message=$ob->sendSMSToMany(strip_tags( trim$_POST["txt_mobno"]),strip_tags( trim$_POST["ta_msg"]));
+
+
 ?>
 <div>Note:for groupSms seperate each number using ;(semicolon)</div>
 <form method="post" name="InstantSMS" style="" action="sendsms.php">
